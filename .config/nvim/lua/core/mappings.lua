@@ -8,7 +8,9 @@ In telescope use <C-q> to send all results to quickfix and <M-q> or
 
 -- TODO: Refactor whenever https://github.com/neovim/neovim/pull/13823 gets merged
 -----------------------------------------------------------------------------//
-vim.g.mapleader = " "
+
+vim.g.mapleader = ","
+
 -----------------------------------------------------------------------------//
 -- Basics {{{1
 -----------------------------------------------------------------------------//
@@ -46,12 +48,7 @@ as.map("n", "c.", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]])
 -----------------------------------------------------------------------------//
 as.map("n", "<leader>e", ":NvimTreeToggle<CR>")
 -- change directory to current file
-as.map(
-    "n",
-    "cd",
-    ":lcd %:p:h<bar>lua print('current direcotry is ' .. vim.fn.getcwd())<CR>",
-    { silent = false }
-)
+as.map("n", "cd", ":lcd %:p:h<bar>lua print('current direcotry is ' .. vim.fn.getcwd())<CR>", { silent = false })
 -----------------------------------------------------------------------------//
 -- help {{{1
 -----------------------------------------------------------------------------//

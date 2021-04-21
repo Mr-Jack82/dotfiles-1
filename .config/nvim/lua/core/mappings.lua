@@ -52,7 +52,18 @@ as.map("n", "c.", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]])
 vim.cmd([[cabbrev w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!]])
 
 -- Enable soft wraping text
-vim.cmd[[command! -nargs=* Wrap set wrap linebreak nolist]]
+vim.cmd([[command! -nargs=* Wrap set wrap linebreak nolist]])
+
+-- easy expansion of the active file directory
+as.map("c", "%%", "<C-r>=fnameescape(expand('%:h')).'/'<CR>", { silent = false })
+as.map("", "<leader>ew", ":e %%", { noremap = false, silent = false })
+as.map("", "<leader>es", ":sp %%", { noremap = false, silent = false })
+as.map("", "<leader>ev", ":vsp %%", { noremap = false, silent = false })
+as.map("", "<leader>et", ":tabe %%", { noremap = false, silent = false })
+
+-- Set working directory to the current buffer's directory
+as.map("n", "cd", ":lcd %:p:h<bar>pwd<CR>", { silent = false })
+as.map("n", "cu", "..<bar>pwd<CR>", { silent = false })
 
 -----------------------------------------------------------------------------//
 -- File manager {{{1

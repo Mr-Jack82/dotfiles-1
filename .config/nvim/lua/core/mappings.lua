@@ -85,6 +85,10 @@ as.map("v", "y", "y`]")
 as.map("v", "p", "p`]")
 as.map("n", "p", "p`]")
 
+-- Keep the flags from the previous substitute command for normal and visual mode
+as.map("n", "&", ":&&<CR>", {silent = false})
+as.map("x", "&", ":&&<CR>", {silent = false})
+
 -----------------------------------------------------------------------------//
 -- File manager {{{1
 -----------------------------------------------------------------------------//

@@ -51,6 +51,9 @@ as.map("n", "c.", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]])
 -- Allows you to save files you opened without write permissions via sudo
 vim.cmd([[cabbrev w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!]])
 
+-- Enable soft wraping text
+vim.cmd[[command! -nargs=* Wrap set wrap linebreak nolist]]
+
 -----------------------------------------------------------------------------//
 -- File manager {{{1
 -----------------------------------------------------------------------------//

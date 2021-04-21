@@ -74,6 +74,9 @@ vim.api.nvim_exec([[
   augroup end
 ]], false)
 
+-- Make {motion} text uppercase in INSERT mode.
+as.map("!", "<C-f>", "<Esc>gUiw`]a", {noremap = false})
+
 -----------------------------------------------------------------------------//
 -- File manager {{{1
 -----------------------------------------------------------------------------//

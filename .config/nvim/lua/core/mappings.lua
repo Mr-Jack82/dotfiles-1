@@ -80,6 +80,11 @@ as.map("!", "<C-f>", "<Esc>gUiw`]a", {noremap = false})
 -- Easier way to use of :ls command
 as.map("n", "<leader>l", ":ls<CR>:b<Space>", {silent = false})
 
+-- Automatically jump to the end of pasted text
+as.map("v", "y", "y`]")
+as.map("v", "p", "p`]")
+as.map("n", "p", "p`]")
+
 -----------------------------------------------------------------------------//
 -- File manager {{{1
 -----------------------------------------------------------------------------//

@@ -77,6 +77,9 @@ vim.api.nvim_exec([[
 -- Make {motion} text uppercase in INSERT mode.
 as.map("!", "<C-f>", "<Esc>gUiw`]a", {noremap = false})
 
+-- Easier way to use of :ls command
+as.map("n", "<leader>l", ":ls<CR>:b<Space>", {silent = false})
+
 -----------------------------------------------------------------------------//
 -- File manager {{{1
 -----------------------------------------------------------------------------//

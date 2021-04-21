@@ -65,6 +65,15 @@ as.map("", "<leader>et", ":tabe %%", { noremap = false, silent = false })
 as.map("n", "cd", ":lcd %:p:h<bar>pwd<CR>", { silent = false })
 as.map("n", "cu", "..<bar>pwd<CR>", { silent = false })
 
+--Remap escape to leave terminal mode
+vim.api.nvim_exec([[
+  augroup Terminal
+    autocmd!
+    au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
+    au TermOpen * set nonu
+  augroup end
+]], false)
+
 -----------------------------------------------------------------------------//
 -- File manager {{{1
 -----------------------------------------------------------------------------//

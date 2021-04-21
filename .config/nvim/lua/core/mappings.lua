@@ -9,6 +9,7 @@ In telescope use <C-q> to send all results to quickfix and <M-q> or
 -- TODO: Refactor whenever https://github.com/neovim/neovim/pull/13823 gets merged
 -----------------------------------------------------------------------------//
 
+-- Set mapleader to comma ','
 vim.g.mapleader = ","
 
 -----------------------------------------------------------------------------//

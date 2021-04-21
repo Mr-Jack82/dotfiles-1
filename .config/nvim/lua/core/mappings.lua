@@ -89,6 +89,11 @@ as.map("n", "p", "p`]")
 as.map("n", "&", ":&&<CR>", {silent = false})
 as.map("x", "&", ":&&<CR>", {silent = false})
 
+-- Search mappings: These will make it so that going to the next one in a
+-- search will center on the line it's found in.
+as.map("n", "n", "nzzzv")
+as.map("n", "N", "Nzzzv")
+
 -----------------------------------------------------------------------------//
 -- File manager {{{1
 -----------------------------------------------------------------------------//

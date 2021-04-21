@@ -12,6 +12,9 @@ In telescope use <C-q> to send all results to quickfix and <M-q> or
 -- Set mapleader to comma ','
 vim.g.mapleader = ","
 
+-- Repeat letest f, t, F or T in opposite direction
+as.map("n", "'", ",")
+
 -----------------------------------------------------------------------------//
 -- Basics {{{1
 -----------------------------------------------------------------------------//

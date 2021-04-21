@@ -66,19 +66,22 @@ as.map("n", "cd", ":lcd %:p:h<bar>pwd<CR>", { silent = false })
 as.map("n", "cu", "..<bar>pwd<CR>", { silent = false })
 
 --Remap escape to leave terminal mode
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+	[[
   augroup Terminal
     autocmd!
     au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
     au TermOpen * set nonu
   augroup end
-]], false)
+]],
+	false
+)
 
 -- Make {motion} text uppercase in INSERT mode.
-as.map("!", "<C-f>", "<Esc>gUiw`]a", {noremap = false})
+as.map("!", "<C-f>", "<Esc>gUiw`]a", { noremap = false })
 
 -- Easier way to use of :ls command
-as.map("n", "<leader>l", ":ls<CR>:b<Space>", {silent = false})
+as.map("n", "<leader>l", ":ls<CR>:b<Space>", { silent = false })
 
 -- Automatically jump to the end of pasted text
 as.map("v", "y", "y`]")
@@ -86,8 +89,8 @@ as.map("v", "p", "p`]")
 as.map("n", "p", "p`]")
 
 -- Keep the flags from the previous substitute command for normal and visual mode
-as.map("n", "&", ":&&<CR>", {silent = false})
-as.map("x", "&", ":&&<CR>", {silent = false})
+as.map("n", "&", ":&&<CR>", { silent = false })
+as.map("x", "&", ":&&<CR>", { silent = false })
 
 -- Search mappings: These will make it so that going to the next one in a
 -- search will center on the line it's found in.
@@ -97,7 +100,7 @@ as.map("n", "N", "Nzzzv")
 -----------------------------------------------------------------------------//
 -- File manager {{{1
 -----------------------------------------------------------------------------//
-as.map("n", "<leader>e", ":NvimTreeToggle<CR>")
+as.map("n", "<leader>n", ":NvimTreeToggle<CR>")
 -- change directory to current file
 as.map("n", "cd", ":lcd %:p:h<bar>lua print('current direcotry is ' .. vim.fn.getcwd())<CR>", { silent = false })
 -----------------------------------------------------------------------------//
@@ -245,7 +248,7 @@ as.map("n", "<leader>r.", ":NvimTreeFindFile<CR>")
 as.map("n", "<leader>rf", ":Format<CR>")
 as.map("v", "<leader>f", ":Format<CR>")
 as.map("n", "<leader>re", ":NvimTreetoggle<CR>")
-as.map("n", "<leader>ru", ":UndotreeToggle<CR>")
+as.map("n", "<leader>u", ":UndotreeToggle<CR>")
 as.map("n", "<leader>rn", ":vsp ~/.config/nvim/lua/config.lua<CR>")
 as.map("n", "<leader>rca", ":ColorizerAttachToBuffer<CR>")
 as.map("n", "<leader>rct", ":ColorizerToggle<CR>")

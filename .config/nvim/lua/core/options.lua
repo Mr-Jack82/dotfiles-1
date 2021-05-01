@@ -15,32 +15,32 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.switchbuf = "useopen,uselast"
 vim.opt.fillchars = {
-    vert = "▕", -- alternatives │
-    fold = " ",
-    eob = " ", -- suppress ~ at EndOfBuffer
-    diff = "╱", -- alternatives = ⣿ ░ ─
-    msgsep = "‾",
-    foldopen = "▾",
-    foldsep = "│",
-    foldclose = "▸",
+	vert = "▕", -- alternatives │
+	fold = " ",
+	eob = " ", -- suppress ~ at EndOfBuffer
+	diff = "╱", -- alternatives = ⣿ ░ ─
+	msgsep = "‾",
+	foldopen = "▾",
+	foldsep = "│",
+	foldclose = "▸",
 }
 -----------------------------------------------------------------------------//
 -- Diff {{{1
 -----------------------------------------------------------------------------//
-vim.opt.diffopt:append {
-    "vertical",
-    "iwhite",
-    "hiddenoff",
-    "foldcolumn:0",
-    "context:4",
-    "algorithm:histogram",
-    "indent-heuristic",
-}
+vim.opt.diffopt:append({
+	"vertical",
+	"iwhite",
+	"hiddenoff",
+	"foldcolumn:0",
+	"context:4",
+	"algorithm:histogram",
+	"indent-heuristic",
+})
 -----------------------------------------------------------------------------//
 -- Grep program {{{1
 -----------------------------------------------------------------------------//
-if vim.fn.executable "rg" == 1 then
-    vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case"
+if vim.fn.executable("rg") == 1 then
+	vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case"
 end
 -----------------------------------------------------------------------------//
 -- Display {{{1
@@ -62,20 +62,23 @@ vim.opt.numberwidth = 1
 vim.opt.confirm = true -- make vim prompt to save before doing destructive things
 vim.opt.fileencoding = "utf-8"
 vim.opt.showmode = false
+vim.opt.textwidth = 80
+vim.opt.colorcolumn = "81"
+-- }}}
 -----------------------------------------------------------------------------//
 -- List Chars {{{1
 -----------------------------------------------------------------------------//
 if as._default(vim.g.code_listchars, false) == true then
-    vim.opt.list = true
-    vim.opt.listchars = {
-        trail = "•",
-        eol = "↴",
-        tab = "» ",
-        extends = "❯",
-        precedes = "❮",
-        nbsp = "_",
-        space = " ",
-    }
+	vim.opt.list = true
+	vim.opt.listchars = {
+		trail = "•",
+		eol = "↴",
+		tab = "» ",
+		extends = "❯",
+		precedes = "❮",
+		nbsp = "_",
+		space = " ",
+	}
 end
 -----------------------------------------------------------------------------//
 -- Indentation {{{1
@@ -102,11 +105,11 @@ vim.opt.completeopt = "menuone,noinsert,noselect"
 -- Utils {{{1
 -----------------------------------------------------------------------------//
 if as._default(vim.g.code_cursor_block, false) then
-    vim.opt.guicursor = ""
+	vim.opt.guicursor = ""
 end
-vim.opt.shortmess:append "c"
-vim.opt.iskeyword:append "-"
-vim.opt.path:append ".,**"
+vim.opt.shortmess:append("c")
+vim.opt.iskeyword:append("-")
+vim.opt.path:append(".,**")
 vim.opt.clipboard = "unnamedplus"
 vim.opt.mouse = "a"
 -----------------------------------------------------------------------------//
@@ -152,67 +155,69 @@ vim.opt.writebackup = false
 vim.opt.wildignorecase = true -- Ignore case when completing file names and directories
 vim.opt.wildmode = "full"
 vim.opt.wildignore = {
-    "*.aux",
-    "*.out",
-    "*.toc",
-    "*.o",
-    "*.obj",
-    "*.dll",
-    "*.jar",
-    "*.pyc",
-    "*.rbc",
-    "*.class",
-    "*.gif",
-    "*.ico",
-    "*.jpg",
-    "*.jpeg",
-    "*.png",
-    "*.avi",
-    "*.wav",
-    "*.webm",
-    "*.eot",
-    "*.otf",
-    "*.ttf",
-    "*.woff",
-    "*.doc",
-    "*.pdf",
-    "*.zip",
-    "*.tar.gz",
-    "*.tar.bz2",
-    "*.rar",
-    "*.tar.xz",
-    -- Cache
-    ".sass-cache",
-    "*/vendor/gems/*",
-    "*/vendor/cache/*",
-    "*/.bundle/*",
-    "*.gem",
-    -- Temp/System
-    "*.*~",
-    "*~ ",
-    "*.swp",
-    ".lock",
-    ".DS_Store",
-    "._*",
-    "tags.lock",
+	"*.aux",
+	"*.out",
+	"*.toc",
+	"*.o",
+	"*.obj",
+	"*.dll",
+	"*.jar",
+	"*.pyc",
+	"*.rbc",
+	"*.class",
+	"*.gif",
+	"*.ico",
+	"*.jpg",
+	"*.jpeg",
+	"*.png",
+	"*.avi",
+	"*.wav",
+	"*.webm",
+	"*.eot",
+	"*.otf",
+	"*.ttf",
+	"*.woff",
+	"*.doc",
+	"*.pdf",
+	"*.zip",
+	"*.tar.gz",
+	"*.tar.bz2",
+	"*.rar",
+	"*.tar.xz",
+	-- Cache
+	".sass-cache",
+	"*/vendor/gems/*",
+	"*/vendor/cache/*",
+	"*/.bundle/*",
+	"*.gem",
+	-- Temp/System
+	"*.*~",
+	"*~ ",
+	"*.swp",
+	".lock",
+	".DS_Store",
+	"._*",
+	"tags.lock",
 }
 -----------------------------------------------------------------------------//
 -- Autocommands {{{1
 -----------------------------------------------------------------------------//
 as.check_and_set(vim.g.code_trim_trailing_space, "BufWritePre", "*", [[%s/\s\+$//e]])
 as.check_and_set(vim.g.code_trim_trailing_space, "BufWritePre", "*", [[%s/\n\+\%$//e]])
+as.check_and_set(vim.g.code_highlight_yank, "TextYankPost", "*", 'lua require"vim.highlight".on_yank{timeout = 250}')
 as.check_and_set(
-    vim.g.code_highlight_yank,
-    "TextYankPost",
-    "*",
-    'lua require"vim.highlight".on_yank{timeout = 250}'
-)
-as.check_and_set(
-    vim.g.code_preserve_cursor,
-    "BufReadPost",
-    "*",
-    [[if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
+	vim.g.code_preserve_cursor,
+	"BufReadPost",
+	"*",
+	[[if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
 )
 as.check_and_set(vim.g.code_format_on_save, "BufWritePost", "*", "silent FormatWrite")
 -- }}}
+
+-- Fix spelling errors
+vim.cmd("iabbrev cosnt const")
+
+-- Enable syntax highlight for Lua in .vim files
+vim.g.vimsyn_embed = "l"
+
 -- vim:foldmethod=marker

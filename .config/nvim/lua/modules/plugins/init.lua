@@ -184,6 +184,8 @@ local pack_use = function()
             require("modules.plugins.indent-guides").config()
         end,
     }
+    use "morhetz/gruvbox"
+    use { "dracula/vim", as = "dracula" }
     -----------------------------------------------------------------------------//
     -- General plugins {{{1
     -----------------------------------------------------------------------------//
@@ -232,6 +234,20 @@ local pack_use = function()
                 css_fn = true,
             })
         end,
+    }
+    -----------------------------------------------------------------------------//
+    -- my plugins
+    -----------------------------------------------------------------------------//
+    use "junegunn/vim-easy-align"
+    use "editorconfig/editorconfig-vim"
+    use "tpope/vim-unimpaired"
+    use "tpope/vim-surround"
+    use "tpope/vim-repeat"
+    use "easymotion/vim-easymotion"
+    use "907th/vim-auto-save"
+    use {
+        "andymass/vim-matchup",
+        ft = {'html', 'javascript', 'json', 'xml'}
     }
 end
 -- }}}

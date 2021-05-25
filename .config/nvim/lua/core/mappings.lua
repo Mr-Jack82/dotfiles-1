@@ -35,14 +35,14 @@ as.map("x", "k", '(v:count == 0 && mode() !=# "V") ? "gk" : "k"', { expr = true 
 as.map("x", "j", '(v:count == 0 && mode() !=# "V") ? "gj" : "j"', { expr = true })
 
 -- Packer.nvim shortcut to update all plugins
-vim.cmd[[command! PU PackerUpdate]]
+vim.cmd([[command! PU PackerUpdate]])
 
 -- Automatically jump to the end of pasted text
 as.map("v", "y", "y`]")
 as.map("v", "p", "p`]")
 as.map("n", "p", "p`]")
 -- Select last pasted text
-as.map("n", "gp", "'`[' . strpart(getregtype(), 0, 1) . '`]'", { expr = true })
+as.map("n", "gV", "'`[' . strpart(getregtype(), 0, 1) . '`]'", { expr = true })
 -- Beginning and end of line in `:` command mode
 as.map("c", "<C-a>", "<home>")
 as.map("c", "<C-e>", "<end>")
@@ -51,6 +51,17 @@ as.map("v", "<", "<gv")
 as.map("v", ">", ">gv")
 -- Search and replace
 as.map("n", "c.", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]])
+-----------------------------------------------------------------------------//
+-- Windows
+-----------------------------------------------------------------------------//
+as.map("n", "<C-h>", "<C-w>h")
+as.map("n", "<C-j>", "<C-w>j")
+as.map("n", "<C-k>", "<C-w>k")
+as.map("n", "<C-l>", "<C-w>l")
+as.map("n", "<S-k>", ":resize -2<CR>")
+as.map("n", "<S-j>", ":resize +2<CR>")
+as.map("n", "<S-h>", ":vertical resize -2<CR>")
+as.map("n", "<S-l>", ":vertical resize +2<CR>")
 
 -- Allows you to save files you opened without write permissions via sudo
 vim.cmd([[cabbrev w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!]])

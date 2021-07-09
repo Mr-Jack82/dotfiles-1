@@ -21,7 +21,6 @@ as.map("n", "'", ",")
 as.map("n", "Y", "y$")
 as.map("v", "Y", "<ESC>y$gv")
 as.map("n", "Q", "<Nop>")
-as.map("i", "jk", "<ESC>")
 as.map("n", "<BS>", "<C-^>")
 as.map("t", "<C-o>", [[<C-\><C-n>]])
 -- Move selected line / block of text in visual mode

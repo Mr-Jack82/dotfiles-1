@@ -58,7 +58,8 @@ M.config = function()
         ["<leader>"] = {
             ["<space>"] = "file in project",
             ["/"] = "search in project",
-            ["e"] = "explorer",
+            ["n"] = "explorer",
+            ["u"] = "open undotree",
             h = {
                 name = "help",
                 h = "help tags",
@@ -201,7 +202,7 @@ M.config = function()
             },
         },
         ["g"] = {
-            ["p"] = "select last pasted text",
+            ["V"] = "select last pasted text",
             ["c"] = "comment text",
             ["cc"] = "comment line",
         },
